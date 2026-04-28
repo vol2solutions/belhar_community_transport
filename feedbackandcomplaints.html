@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feedback & Complaints - Belhar Community Transport</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #0f766e, #14b8a6);
+  margin: 0;
+  padding: 0;
+  color: #fff;
+}
+
+header {
+  text-align: center;
+  padding: 25px;
+  background: rgba(0,0,0,0.2);
+}
+
+.container {
+  max-width: 600px;
+  margin: 30px auto;
+  background: #ffffff;
+  color: #333;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+p {
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-top: 10px;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+textarea {
+  resize: vertical;
+  height: 100px;
+}
+
+button {
+  width: 100%;
+  margin-top: 20px;
+  padding: 12px;
+  background: #0f766e;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #115e59;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Belhar Community Transport</h1>
+</header>
+
+<div class="container">
+  <h2>Feedback & Complaints</h2>
+  <p>
+    We value your input. Use this form to send us your feedback or lodge a complaint.
+    Your message will be sent directly to management via WhatsApp.
+  </p>
+
+  <form id="feedbackForm">
+
+    <label>Name:</label>
+    <input type="text" id="name" required>
+
+    <label>Contact Number:</label>
+    <input type="tel" id="contact" required>
+
+    <label>Type:</label>
+    <select id="type" required>
+      <option value="">-- Select --</option>
+      <option value="Feedback">Feedback</option>
+      <option value="Complaint">Complaint</option>
+    </select>
+
+    <label>Driver:</label>
+    <input type="text" id="driver" placeholder="Optional">
+
+    <label>Message:</label>
+    <textarea id="message" required></textarea>
+
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
+<script>
+document.getElementById("feedbackForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const name = document.getElementById("name").value;
+  const contact = document.getElementById("contact").value;
+  const type = document.getElementById("type").value;
+  const driver = document.getElementById("driver").value;
+  const message = document.getElementById("message").value;
+
+  const whatsappNumber = "27798526921";
+
+  const fullMessage =
+`*New ${type} Submission - Belhar Transport*
+
+Name: ${name}
+Contact: ${contact}
+Type: ${type}
+Driver: ${driver ? driver : "N/A"}
+
+Message:
+${message}`;
+
+  const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(fullMessage)}`;
+
+  window.open(url, "_blank");
+});
+</script>
+
+</body>
+</html>
