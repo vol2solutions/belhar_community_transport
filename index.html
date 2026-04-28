@@ -184,6 +184,63 @@ nav a:hover {
 .price-image-container img:hover {
   transform: scale(1.01);
 }
+
+.table-container {
+  overflow-x: auto; /* important for mobile */
+  margin-top: 20px;
+}
+
+.price-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 700px;
+  color: #fff;
+  font-size: 14px;
+}
+
+.price-table th,
+.price-table td {
+  padding: 12px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.price-table th {
+  background: rgba(0,0,0,0.25);
+  font-weight: bold;
+}
+
+.price-table td:first-child {
+  text-align: left;
+  font-weight: 600;
+}
+
+.price-table tr:nth-child(even) {
+  background: rgba(255,255,255,0.05);
+}
+
+.price-table tr:hover {
+  background: rgba(52,168,83,0.2);
+}
+
+/* Section divider (External) */
+.section-row td {
+  background: rgba(52,168,83,0.4);
+  font-weight: bold;
+  text-align: left;
+}
+
+/* MOBILE TWEAK */
+@media(max-width: 768px) {
+  .price-table {
+    font-size: 12px;
+  }
+
+  .price-table th,
+  .price-table td {
+    padding: 8px;
+  }
+}
   
 /* CTA */
 .cta {
@@ -472,8 +529,69 @@ footer {
 <section class="price-list glass">
   <h2>Price List</h2>
 
-  <div class="price-image-container">
-    <img src="images/WhatsApp Image 2026-04-12 at 8.43.49 AM.jpeg" alt="Price List">
+  <div class="table-container">
+    <table class="price-table">
+      <thead>
+        <tr>
+          <th>From / To</th>
+          <th>Extension</th>
+          <th>Self-help</th>
+          <th>Toilet City</th>
+          <th>Musicals</th>
+          <th>Old Belhar</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr><td>Self Help</td><td>R40</td><td>R35</td><td>R40</td><td>R45</td><td>R55</td></tr>
+        <tr><td>Toilet City</td><td>R40</td><td>R40</td><td>R35</td><td>R40</td><td>R50-R55</td></tr>
+        <tr><td>Musicals</td><td>R40</td><td>R50</td><td>R45</td><td>R35</td><td>R45</td></tr>
+        <tr><td>Old Belhar</td><td>R50</td><td>R55</td><td>R50-R55</td><td>R45</td><td>R35</td></tr>
+        <tr><td>Extension</td><td>R35</td><td>R40</td><td>R40</td><td>R40</td><td>R50-R55</td></tr>
+        <tr><td>Erica Square</td><td>R40</td><td>R45</td><td>R40</td><td>R35</td><td>R35-R40</td></tr>
+        <tr><td>Airport Mall</td><td>R35</td><td>R35</td><td>R40</td><td>R40</td><td>R55</td></tr>
+        <tr><td>UWC/CPUT</td><td>R45</td><td>R50</td><td>R45</td><td>R45</td><td>R50</td></tr>
+        <tr><td>Old Belhar Spar</td><td>R55</td><td>R60</td><td>R55</td><td>R45</td><td>R35-R40</td></tr>
+
+        <tr class="section-row"><td colspan="6">External</td></tr>
+
+        <tr><td>The Hague</td><td>R55</td><td>R55</td><td>R60</td><td>R60</td><td>R65</td></tr>
+        <tr><td>Roosendal</td><td>R55</td><td>R55</td><td>R60</td><td>R60</td><td>R70</td></tr>
+        <tr><td>Leiden</td><td>R65</td><td>R65</td><td>R70</td><td>R65</td><td>R70</td></tr>
+        <tr><td>Voorbrug</td><td>R60</td><td>R60</td><td>R70</td><td>R65</td><td>R75</td></tr>
+        <tr><td>Eindhoven</td><td>R75</td><td>R75</td><td>R80</td><td>R85</td><td>R90</td></tr>
+        <tr><td>Lavis</td><td>R85</td><td>R90</td><td>R85</td><td>R70</td><td>R60</td></tr>
+        <tr><td>Wesbank</td><td>R65</td><td>R60-R65</td><td>R70</td><td>R75</td><td>R90</td></tr>
+        <tr><td>Highbury</td><td>R75</td><td>R70-R75</td><td>R80</td><td>R90</td><td>R90</td></tr>
+        <tr><td>Elsies</td><td>R90-R100</td><td>R90-R105</td><td>R90-R100</td><td>R80</td><td>R70</td></tr>
+        <tr><td>Ravensmead</td><td>R80</td><td>R85</td><td>R80</td><td>R75</td><td>R65</td></tr>
+        <tr><td>Tygerberg Hosp</td><td>R80</td><td>R85</td><td>R80</td><td>R75</td><td>R65</td></tr>
+        <tr><td>Bonteheuwel</td><td>R100-R115</td><td>R100-R110</td><td>R100-R110</td><td>R90</td><td>R80</td></tr>
+        <tr><td>Grandwest</td><td>R115</td><td>R120</td><td>R120</td><td>R120</td><td>R110</td></tr>
+        <tr><td>Goodwood</td><td>R130-R145</td><td>R130-R150</td><td>R130-R150</td><td>R110-R120</td><td>R110</td></tr>
+        <tr><td>Bellville</td><td>R85-R95</td><td>R90-R105</td><td>R85-R95</td><td>R85</td><td>R85-R95</td></tr>
+        <tr><td>Bellville South</td><td>R80</td><td>R85</td><td>R80</td><td>R80</td><td>R85</td></tr>
+        <tr><td>Access Park</td><td>R95</td><td>R90</td><td>R95</td><td>R100</td><td>R100</td></tr>
+        <tr><td>Kuilsriver</td><td>R95-R115</td><td>R95-R105</td><td>R95-R120</td><td>R100-R120</td><td>R100-R120</td></tr>
+        <tr><td>Airport Ind</td><td>R90</td><td>R90-R100</td><td>R90-R100</td><td>R80</td><td>R75</td></tr>
+        <tr><td>Parow</td><td>R105</td><td>R110</td><td>R100</td><td>R95</td><td>R75-R80</td></tr>
+        <tr><td>N1 City</td><td>R135</td><td>R140</td><td>R135</td><td>R130</td><td>R120</td></tr>
+        <tr><td>Tygervalley</td><td>R130</td><td>R135</td><td>R130</td><td>R130</td><td>R120-R130</td></tr>
+        <tr><td>Durbanville</td><td>R135</td><td>R140</td><td>R135</td><td>R135</td><td>R125-R135</td></tr>
+        <tr><td>Zevenwacht</td><td>R95</td><td>R90</td><td>R100</td><td>R100</td><td>R110</td></tr>
+        <tr><td>Cape Gate</td><td>R145</td><td>R140</td><td>R150</td><td>R145</td><td>R160</td></tr>
+        <tr><td>Promenade</td><td>R135</td><td>R130</td><td>R140</td><td>R145</td><td>R150</td></tr>
+        <tr><td>Lentegeur</td><td>R110-R135</td><td>R110-R130</td><td>R120-140</td><td>R135</td><td>R150</td></tr>
+        <tr><td>Woodlands</td><td>R145</td><td>R140</td><td>R145</td><td>R150</td><td>R155</td></tr>
+        <tr><td>Eersteriver</td><td>R120-R150</td><td>R120-150</td><td>R120-R160</td><td>R120-R145</td><td>R160</td></tr>
+        <tr><td>Brackenfell</td><td>R120-R145</td><td>R120-R140</td><td>R120-R145</td><td>R140</td><td>R120-R160</td></tr>
+        <tr><td>Kenilworth</td><td>R160-R165</td><td>R160-R170</td><td>R160-R170</td><td>R170</td><td>R150</td></tr>
+        <tr><td>Claremont</td><td>R150-R155</td><td>R155-R160</td><td>R155-R160</td><td>R160</td><td>R140</td></tr>
+        <tr><td>Century City</td><td>R175</td><td>R180</td><td>R175</td><td>R190</td><td>R170</td></tr>
+        <tr><td>Cape Town</td><td>R190-R210</td><td>R190-R210</td><td>R190-R210</td><td>R190</td><td>R190</td></tr>
+
+      </tbody>
+    </table>
   </div>
 </section>
 
