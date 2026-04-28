@@ -138,6 +138,27 @@ nav ul { display: flex; list-style: none; gap: 20px; }
   gap: 20px;
 }
 
+/* PRICE LIST IMAGE */
+.price-list {
+  text-align: center;
+  padding: 20px;
+}
+
+.price-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.price-image-container img {
+  max-width: 100%;
+  height: auto;
+  max-height: 500px; /* prevents it from becoming too large */
+  border-radius: 12px; /* optional, matches glass style */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
 /* CTA */
 .cta {
   width: 90%;
@@ -168,6 +189,7 @@ footer {
 @media(max-width: 768px) {
   .hero { grid-template-columns: 1fr; }
 }
+
 </style>
 </head>
 
@@ -339,6 +361,15 @@ footer {
   </div>
 
 </section>
+  
+<section class="price-list glass">
+  <h2>Price List</h2>
+
+  <div class="price-image-container">
+    <img src="images/WhatsApp Image 2026-04-12 at 8.43.49 AM.jpeg" alt="Price List">
+  </div>
+</section>
+
 
 <!-- TEMPORARY REMOVED FOR FUTURE USE -->
 
