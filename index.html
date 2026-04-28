@@ -154,13 +154,18 @@ nav ul { display: flex; list-style: none; gap: 20px; }
 }
 
 .price-image-container img {
-  max-width: 100%;
+  width: 100%;
+  max-width: 95%;
   height: auto;
-  max-height: 500px; /* prevents it from becoming too large */
-  border-radius: 12px; /* optional, matches glass style */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
 }
 
+.price-image-container img:hover {
+  transform: scale(1.01);
+}
+  
 /* CTA */
 .cta {
   width: 90%;
@@ -201,13 +206,12 @@ footer {
 <nav class="glass">
   <img src="images/Logo.png" alt="logo">
   <h1>BELHAR COMMUNITY TRANSPORT</h1>
-  <!-- TEMP DISABLE NAV BAR LINKS
+  
   <ul>
-    <li>Home</li>
-    <li>Routes</li>
-    <li>Book</li>
-    <li>Contact</li>
-  </ul> -->
+    <li>Rules</li>
+    <li>Feedback & Complaints</li>
+   
+  </ul>
 </nav>
 
 <!-- HERO -->
