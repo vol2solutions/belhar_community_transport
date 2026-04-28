@@ -10,7 +10,9 @@
 
 body {
   font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #0f3d2e, #1f7a5c, #34a853);
+  /*background: linear-gradient(135deg, #0f3d2e, #1f7a5c, #34a853);*/
+  background: url("images/Background.jpg") no-repeat center center fixed;
+  background-size: cover;
   color: #fff;
   min-height: 100vh;
 }
@@ -35,6 +37,13 @@ nav {
 }
 nav img { height: 40px; }
 nav ul { display: flex; list-style: none; gap: 20px; }
+
+  .logo-header h1 {
+  font-size: 20px;
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
 
 /* HERO */
 .hero {
@@ -158,12 +167,14 @@ footer {
 <!-- NAV -->
 <nav class="glass">
   <img src="images/Logo.png" alt="logo">
+  <h1>BELHAR COMMUNITY TRANSPORT</h1>
+  <!-- TEMP DISABLE NAV BAR LINKS
   <ul>
     <li>Home</li>
     <li>Routes</li>
     <li>Book</li>
     <li>Contact</li>
-  </ul>
+  </ul> -->
 </nav>
 
 <!-- HERO -->
