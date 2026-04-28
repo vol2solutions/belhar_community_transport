@@ -554,37 +554,34 @@ Passengers: ${passenger}
 Time: ${time}
 Return Trip: ${returnTrip}`;
 
-    // Copy to clipboard
-    navigator.clipboard.writeText(message).then(() => {
-        
-        // Open WhatsApp
-        const whatsappURL = "https://wa.me/";
-        window.open(whatsappURL, "_blank");
+    // ✅ Prepare data for Google Sheets
+    const rideData = {
+        name,
+        pickup,
+        dropoff,
+        passenger,
+        time,
+        returnTrip
+    };
 
+    // ✅ Send to Google Sheets
+    fetch("https://script.google.com/macros/s/AKfycbxU-WP_A_gOJqsvM_8Jf37FAovR5kuGgeZVtz1msfKZz4O1D7HH074fyd1DJuI-Vi1T/exec", {
+        method: "POST",
+        body: JSON.stringify(rideData)
+    })
+    .then(res => res.text())
+    .then(data => console.log("Saved to sheet:", data))
+    .catch(err => console.error("Sheet error:", err));
+
+    // ✅ Continue with your existing flow
+    navigator.clipboard.writeText(message).then(() => {
+        window.open("https://wa.me/", "_blank");
         alert("Copied to clipboard. Paste it into your WhatsApp group.");
     }).catch(err => {
         alert("Failed to copy message. Please copy manually.");
         console.error(err);
     });
 }
-
-const rideData = {
-    name,
-    pickup,
-    dropoff,
-    passenger,
-    time,
-    returnTrip
-};
-
-// Send to Google Sheets
-fetch("https://script.google.com/macros/s/AKfycbxU-WP_A_gOJqsvM_8Jf37FAovR5kuGgeZVtz1msfKZz4O1D7HH074fyd1DJuI-Vi1T/exec", {
-    method: "POST",
-    body: JSON.stringify(rideData)
-})
-.then(res => res.text())
-.then(data => console.log("Saved to sheet:", data))
-.catch(err => console.error("Sheet error:", err));
 </script>
   
 </body>
