@@ -360,6 +360,12 @@ footer {
     <option>23:00</option><option>23:15</option><option>23:30</option><option>23:45</option>
   </select>
 
+    <!-- Return Trip -->
+ <select id="return">
+  <option value="No" selected>No</option>
+  <option value="Yes">Yes</option>
+</select>
+    
     <!--<button class="btn" onclick="handleBooking()">Send to WhatsApp Group</button>-->
     <button class="btn" type="button" onclick="sendRideRequest()">Send via WhatsApp</button>
 
@@ -435,6 +441,7 @@ function sendRideRequest() {
     const pickup = document.getElementById("pickup").value;
     const dropoff = document.getElementById("dropoff").value;
     const time = document.getElementById("time").value;
+    const returnTrip = document.getElementById("return").value;
 
     // Basic validation
     if (!name || !pickup || !dropoff || !time) {
@@ -447,7 +454,8 @@ function sendRideRequest() {
 `Ride request for ${name}
 Pickup: ${pickup}
 Dropoff: ${dropoff}
-Time: ${time}`;
+Time: ${time}
+Return Trip: ${returnTrip}`;
 
     // Copy to clipboard
     navigator.clipboard.writeText(message).then(() => {
