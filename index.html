@@ -312,7 +312,8 @@ footer {
     <option>23:00</option><option>23:15</option><option>23:30</option><option>23:45</option>
   </select>
 
-    <button class="btn" onclick="handleBooking()">Send to WhatsApp Group</button>
+    <!--<button class="btn" onclick="handleBooking()">Send to WhatsApp Group</button>-->
+    <button type="button" onclick="sendRideRequest()">Send via WhatsApp</button>
 
     <div class="status" id="statusMsg"></div>
   </div>
@@ -372,35 +373,37 @@ footer {
 </footer>
 
 <script>
-function handleBooking() {
-  const name = document.getElementById("name").value.trim();
-  const pickup = document.getElementById("pickup").value.trim();
-  const dropoff = document.getElementById("dropoff").value.trim();
-  const time = document.getElementById("time").value;
+function sendRideRequest() {
+    const name = document.getElementById("name").value;
+    const pickup = document.getElementById("pickup").value;
+    const dropoff = document.getElementById("dropoff").value;
+    const time = document.getElementById("time").value;
 
-  const status = document.getElementById("statusMsg");
+    // Basic validation
+    if (!name || !pickup || !dropoff || !time) {
+        alert("Please fill in all fields");
+        return;
+    }
 
-  if (!name || !pickup || !dropoff || !time) {
-    status.innerText = "⚠️ Please fill in all fields.";
-    return;
-  }
+    // Format message
+    const message =
+`Ride request for ${name}
+Pickup: ${pickup}
+Dropoff: ${dropoff}
+Time: ${time}`;
 
-  const message =
-`🚐 *Booking Request*
-👤 Name: ${name}
-📍 Pickup: ${pickup}
-🏁 Drop-off: ${dropoff}
-⏰ Time: ${time}`;
+    // Copy to clipboard
+    navigator.clipboard.writeText(message).then(() => {
+        
+        // Open WhatsApp
+        const whatsappURL = "https://wa.me/";
+        window.open(whatsappURL, "_blank");
 
-  navigator.clipboard.writeText(message).then(() => {
-    status.innerText = "✅ Booking copied! Opening WhatsApp group...";
-    
-    setTimeout(() => {
-      window.open("YOUR_GROUP_LINK", "_blank");
-    }, 800);
-  }).catch(() => {
-    status.innerText = "❌ Could not copy. Please try again.";
-  });
+        alert("Copied to clipboard. Paste it into your WhatsApp group.");
+    }).catch(err => {
+        alert("Failed to copy message. Please copy manually.");
+        console.error(err);
+    });
 }
 </script>
 
