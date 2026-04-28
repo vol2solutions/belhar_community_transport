@@ -360,6 +360,9 @@ footer {
     <option>23:00</option><option>23:15</option><option>23:30</option><option>23:45</option>
   </select>
 
+    <!-- Number of Passengers -->
+    <input type="text" id="passenger" placeholder="Number of Passengers">
+    
     <!-- Return Trip -->
  <select id="return">
   <option value="No" selected>No</option>
@@ -442,9 +445,10 @@ function sendRideRequest() {
     const dropoff = document.getElementById("dropoff").value;
     const time = document.getElementById("time").value;
     const returnTrip = document.getElementById("return").value;
+    const passenger = document.getElementById("passenger").value;
 
     // Basic validation
-    if (!name || !pickup || !dropoff || !time) {
+    if (!name || !pickup || !dropoff || !time || !passenger) {
         alert("Please fill in all fields");
         return;
     }
@@ -454,6 +458,7 @@ function sendRideRequest() {
 `Ride request for ${name}
 Pickup: ${pickup}
 Dropoff: ${dropoff}
+Passengers: ${passenger}
 Time: ${time}
 Return Trip: ${returnTrip}`;
 
@@ -471,6 +476,6 @@ Return Trip: ${returnTrip}`;
     });
 }
 </script>
-
+  
 </body>
 </html>
