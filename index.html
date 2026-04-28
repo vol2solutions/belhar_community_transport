@@ -24,6 +24,8 @@ body {
     linear-gradient(135deg, rgba(15, 61, 46, 0.65), rgba(31, 122, 92, 0.65)),
     url("images/Background.jpg") no-repeat center center fixed;
   background-size: cover;
+  position: relative;
+  z-index: 0;
 }
 
 /* GLASS */
@@ -33,6 +35,8 @@ body {
   border-radius: 16px;
   border: 1px solid rgba(255,255,255,0.25);
   box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  position: relative;
+  z-index: 1;
 }
 
 /* NAV */
@@ -43,6 +47,8 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
+  z-index: 2;
 }
 nav img { height: 40px; }
 nav ul { display: flex; list-style: none; gap: 20px; }
