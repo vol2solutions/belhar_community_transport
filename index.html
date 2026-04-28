@@ -6,7 +6,6 @@
 <title>Belhar Community Transport</title>
 
 <style>
-/* ===== RESET ===== */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
@@ -16,7 +15,7 @@ body {
   min-height: 100vh;
 }
 
-/* ===== GLASS ===== */
+/* GLASS */
 .glass {
   background: rgba(34, 197, 94, 0.12);
   backdrop-filter: blur(10px);
@@ -25,7 +24,7 @@ body {
   box-shadow: 0 8px 32px rgba(0,0,0,0.3);
 }
 
-/* ===== NAV ===== */
+/* NAV */
 nav {
   width: 90%;
   margin: 20px auto;
@@ -35,13 +34,9 @@ nav {
   align-items: center;
 }
 nav img { height: 40px; }
-nav ul {
-  display: flex;
-  list-style: none;
-  gap: 20px;
-}
+nav ul { display: flex; list-style: none; gap: 20px; }
 
-/* ===== HERO ===== */
+/* HERO */
 .hero {
   width: 90%;
   margin: 30px auto;
@@ -86,7 +81,14 @@ nav ul {
   background: #2c8f47;
 }
 
-/* ===== ROUTES ===== */
+/* STATUS MESSAGE */
+.status {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #d1fae5;
+}
+
+/* ROUTES */
 .routes {
   width: 90%;
   margin: 40px auto;
@@ -101,11 +103,9 @@ nav ul {
   gap: 20px;
 }
 
-.route-card {
-  padding: 20px;
-}
+.route-card { padding: 20px; }
 
-/* ===== FEATURES ===== */
+/* FEATURES */
 .features {
   width: 90%;
   margin: 40px auto;
@@ -120,7 +120,7 @@ nav ul {
   gap: 20px;
 }
 
-/* ===== CTA ===== */
+/* CTA */
 .cta {
   width: 90%;
   margin: 40px auto;
@@ -139,18 +139,16 @@ nav ul {
   font-weight: bold;
 }
 
-/* ===== FOOTER ===== */
+/* FOOTER */
 footer {
   text-align: center;
   padding: 20px;
   margin: 20px;
 }
 
-/* ===== MOBILE ===== */
+/* MOBILE */
 @media(max-width: 768px) {
-  .hero {
-    grid-template-columns: 1fr;
-  }
+  .hero { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -168,29 +166,31 @@ footer {
   </ul>
 </nav>
 
-<!-- HERO + BOOKING -->
+<!-- HERO -->
 <section class="hero glass">
 
   <div>
     <h1>Safe & Reliable Community Transport</h1>
-    <p>Serving Belhar and surrounding areas with affordable daily transport.</p>
+    <p>Book your ride quickly and share your request in the group.</p>
   </div>
 
   <div class="booking-form glass">
     <h3>Book Your Trip</h3>
 
-    <input type="text" placeholder="Full Name">
-    <input type="text" placeholder="Pickup Location">
-    <input type="text" placeholder="Drop-off Location">
+    <input type="text" id="name" placeholder="Full Name">
+    <input type="text" id="pickup" placeholder="Pickup Location">
+    <input type="text" id="dropoff" placeholder="Drop-off Location">
 
-    <select>
-      <option>Select Time</option>
+    <select id="time">
+      <option value="">Select Time</option>
       <option>Morning</option>
       <option>Afternoon</option>
       <option>Evening</option>
     </select>
 
-    <button class="btn">Request Booking</button>
+    <button class="btn" onclick="handleBooking()">Send to WhatsApp Group</button>
+
+    <div class="status" id="statusMsg"></div>
   </div>
 
 </section>
@@ -230,12 +230,11 @@ footer {
 
 <!-- CTA -->
 <section class="cta glass">
-  <h2>Need Immediate Assistance?</h2>
-  <p>Contact us directly on WhatsApp</p>
+  <h2>Join Our Booking Group</h2>
+  <p>Stay updated and request rides easily</p>
 
-  <!-- Replace number -->
-  <a href="https://wa.me/27700000000" class="whatsapp-btn">
-    Chat on WhatsApp
+  <a href="YOUR_GROUP_LINK" class="whatsapp-btn" target="_blank">
+    Open WhatsApp Group
   </a>
 </section>
 
@@ -243,6 +242,39 @@ footer {
 <footer class="glass">
   <p>&copy; 2026 Belhar Community Transport</p>
 </footer>
+
+<script>
+function handleBooking() {
+  const name = document.getElementById("name").value.trim();
+  const pickup = document.getElementById("pickup").value.trim();
+  const dropoff = document.getElementById("dropoff").value.trim();
+  const time = document.getElementById("time").value;
+
+  const status = document.getElementById("statusMsg");
+
+  if (!name || !pickup || !dropoff || !time) {
+    status.innerText = "⚠️ Please fill in all fields.";
+    return;
+  }
+
+  const message =
+`🚐 *Booking Request*
+👤 Name: ${name}
+📍 Pickup: ${pickup}
+🏁 Drop-off: ${dropoff}
+⏰ Time: ${time}`;
+
+  navigator.clipboard.writeText(message).then(() => {
+    status.innerText = "✅ Booking copied! Opening WhatsApp group...";
+    
+    setTimeout(() => {
+      window.open("YOUR_GROUP_LINK", "_blank");
+    }, 800);
+  }).catch(() => {
+    status.innerText = "❌ Could not copy. Please try again.";
+  });
+}
+</script>
 
 </body>
 </html>
