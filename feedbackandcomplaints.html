@@ -6,90 +6,145 @@
 <title>Feedback & Complaints - Belhar Community Transport</title>
 
 <style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
 body {
   font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #0f766e, #14b8a6);
-  margin: 0;
-  padding: 0;
+  background: linear-gradient(135deg, #0f3d2e, #1f7a5c, #34a853);
   color: #fff;
+  min-height: 100vh;
 }
 
-header {
-  text-align: center;
-  padding: 25px;
-  background: rgba(0,0,0,0.2);
+/* GLASS */
+.glass {
+  background: rgba(34, 197, 94, 0.12);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.25);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
 }
 
+/* NAV */
+nav {
+  width: 90%;
+  margin: 20px auto;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-header img {
+  height: 50px;
+}
+
+.logo-header h1 {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.back-link {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+}
+
+/* CONTENT */
 .container {
-  max-width: 600px;
+  width: 90%;
   margin: 30px auto;
-  background: #ffffff;
-  color: #333;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  padding: 30px;
 }
 
-h2 {
-  text-align: center;
+.container h2 {
   margin-bottom: 10px;
 }
 
-p {
-  text-align: center;
-  font-size: 14px;
+.container p {
   margin-bottom: 20px;
-  color: #555;
+  line-height: 1.6;
+}
+
+/* FORM */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 label {
   font-weight: bold;
-  display: block;
-  margin-top: 10px;
 }
 
 input, select, textarea {
-  width: 100%;
   padding: 10px;
-  margin-top: 5px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-size: 14px;
 }
 
 textarea {
+  min-height: 120px;
   resize: vertical;
-  height: 100px;
 }
 
 button {
-  width: 100%;
-  margin-top: 20px;
+  margin-top: 10px;
   padding: 12px;
-  background: #0f766e;
-  color: white;
   border: none;
-  border-radius: 5px;
-  font-size: 16px;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #0f3d2e;
+  font-weight: bold;
   cursor: pointer;
+  transition: 0.3s;
 }
 
 button:hover {
-  background: #115e59;
+  background: #e5e5e5;
+}
+
+/* MOBILE */
+@media(max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .container {
+    padding: 20px;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<header>
-  <h1>Belhar Community Transport</h1>
-</header>
+<!-- NAV -->
+<nav class="glass">
+  <div class="logo-header">
+    <img src="images/Logo.png" alt="logo">
+    <h1>FEEDBACK & COMPLAINTS</h1>
+  </div>
 
-<div class="container">
-  <h2>Feedback & Complaints</h2>
+  <a href="index.html" class="back-link">← Back</a>
+</nav>
+
+<!-- CONTENT -->
+<section class="container glass">
+
+  <h2>We value your input</h2>
   <p>
-    We value your input. Use this form to send us your feedback or lodge a complaint.
-    Your message will be sent directly to management via WhatsApp.
+    Please use this form to send us your feedback or lodge a complaint.
+    All submissions are sent directly to management via WhatsApp.
   </p>
 
   <form id="feedbackForm">
@@ -114,8 +169,10 @@ button:hover {
     <textarea id="message" required></textarea>
 
     <button type="submit">Submit</button>
+
   </form>
-</div>
+
+</section>
 
 <script>
 document.getElementById("feedbackForm").addEventListener("submit", function(e) {
@@ -130,7 +187,7 @@ document.getElementById("feedbackForm").addEventListener("submit", function(e) {
   const whatsappNumber = "27798526921";
 
   const fullMessage =
-`*New ${type} Submission - Belhar Transport*
+`*New ${type} Submission - Belhar Community Transport*
 
 Name: ${name}
 Contact: ${contact}
