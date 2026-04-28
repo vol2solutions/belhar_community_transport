@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Belhar Community Transport</title>
+
+<style>
+/* ===== RESET ===== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #0f3d2e, #1f7a5c, #34a853);
+  color: #fff;
+  min-height: 100vh;
+}
+
+/* ===== GLASS ===== */
+.glass {
+  background: rgba(34, 197, 94, 0.12);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.25);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+/* ===== NAV ===== */
+nav {
+  width: 90%;
+  margin: 20px auto;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+nav img { height: 40px; }
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+/* ===== HERO ===== */
+.hero {
+  width: 90%;
+  margin: 30px auto;
+  padding: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: center;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.booking-form {
+  padding: 25px;
+}
+
+.booking-form input,
+.booking-form select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+}
+
+.btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  background: #34a853;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #2c8f47;
+}
+
+/* ===== ROUTES ===== */
+.routes {
+  width: 90%;
+  margin: 40px auto;
+  padding: 40px;
+  text-align: center;
+}
+
+.route-grid {
+  margin-top: 25px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 20px;
+}
+
+.route-card {
+  padding: 20px;
+}
+
+/* ===== FEATURES ===== */
+.features {
+  width: 90%;
+  margin: 40px auto;
+  padding: 40px;
+  text-align: center;
+}
+
+.feature-grid {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 20px;
+}
+
+/* ===== CTA ===== */
+.cta {
+  width: 90%;
+  margin: 40px auto;
+  padding: 40px;
+  text-align: center;
+}
+
+.whatsapp-btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 25px;
+  background: #25D366;
+  border-radius: 10px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  text-align: center;
+  padding: 20px;
+  margin: 20px;
+}
+
+/* ===== MOBILE ===== */
+@media(max-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav class="glass">
+  <img src="logo.png" alt="logo">
+  <ul>
+    <li>Home</li>
+    <li>Routes</li>
+    <li>Book</li>
+    <li>Contact</li>
+  </ul>
+</nav>
+
+<!-- HERO + BOOKING -->
+<section class="hero glass">
+
+  <div>
+    <h1>Safe & Reliable Community Transport</h1>
+    <p>Serving Belhar and surrounding areas with affordable daily transport.</p>
+  </div>
+
+  <div class="booking-form glass">
+    <h3>Book Your Trip</h3>
+
+    <input type="text" placeholder="Full Name">
+    <input type="text" placeholder="Pickup Location">
+    <input type="text" placeholder="Drop-off Location">
+
+    <select>
+      <option>Select Time</option>
+      <option>Morning</option>
+      <option>Afternoon</option>
+      <option>Evening</option>
+    </select>
+
+    <button class="btn">Request Booking</button>
+  </div>
+
+</section>
+
+<!-- ROUTES -->
+<section class="routes glass">
+  <h2>Popular Routes</h2>
+
+  <div class="route-grid">
+    <div class="route-card glass">
+      <h3>Belhar → Bellville</h3>
+      <p>Daily Trips</p>
+    </div>
+
+    <div class="route-card glass">
+      <h3>Belhar → Airport</h3>
+      <p>On Request</p>
+    </div>
+
+    <div class="route-card glass">
+      <h3>Belhar → Cape Town</h3>
+      <p>Weekdays</p>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features glass">
+  <h2>Why Choose Us</h2>
+
+  <div class="feature-grid">
+    <div class="glass">Affordable Pricing</div>
+    <div class="glass">Reliable Drivers</div>
+    <div class="glass">Safe Vehicles</div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta glass">
+  <h2>Need Immediate Assistance?</h2>
+  <p>Contact us directly on WhatsApp</p>
+
+  <!-- Replace number -->
+  <a href="https://wa.me/27700000000" class="whatsapp-btn">
+    Chat on WhatsApp
+  </a>
+</section>
+
+<!-- FOOTER -->
+<footer class="glass">
+  <p>&copy; 2026 Belhar Community Transport</p>
+</footer>
+
+</body>
+</html>
